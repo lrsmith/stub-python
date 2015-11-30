@@ -16,15 +16,15 @@ def help():
 def main(argv):
 
   try:
-    opts, args = getopt.getopt(argv,"dh",[])
+    opts, args = getopt.getopt(sys.argv[1:], "dh", ["debug","help"])
   except getopt.GetoptError:
     help()
     sys.exit(2)
 
   for opt,arg in opts:
-    if opt in ( '-h'):
+    if opt in ( '-h','--help'):
       help()
-    elif opt in ( '-d'):
+    elif opt in ( '-d', '--debug'):
       global debug
       debug = 1
     else:
